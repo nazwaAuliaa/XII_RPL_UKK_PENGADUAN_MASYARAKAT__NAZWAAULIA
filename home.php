@@ -1,85 +1,62 @@
-<?php
-$db = new PDO("mysql:host=localhost;dbname=pengaduanmasyarakat","root","");
-$query = $db->query("SELECT * FROM `pengaduan`");
-
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
-    crossorigin="anonymous">
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <title>home</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-sm-auto bg-danger sticky-top">
-            <div class="d-flex flex-sm-column flex-row flex-nowrap bg-danger align-items-center sticky-top">
-            <a href="" class="d-block p-3 text-decoration-none fs-3 text-light fw-bold">PPM</a>
-                <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
-                    <li class="nav-item">
-                        <a href="home.php" class="nav-link px-0 align-middle" style="color:white"><ion-icon name="home" class="fs-3"></ion-icon></a>Home
-                    </li>
-                    <li>
-                        <a href="masyarakat.php" class="nav-link px-0 align-middle" style="color:white"><ion-icon name="create" class="fs-3"></ion-icon></a>Isi Laporan
-                    </li>
-                    <li>
-                        <a href="logout.php" class="nav-link px-0 align-middle" style="color:white"><ion-icon name="log-out" class="fs-3"></ion-icon></a>Log Out
-                    </li>
-                </ul>
-                <div class="dropdown">
-                    <a href="#" class="d-flex align-items-center justify-content-center p-3 link-dark text-decoration-none dropdown-toggle" id="dropdownUser3" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi-person-circle h2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm p-3 min-vh-100">
-            <!-- content -->
-            <div class="container mt-5">
-            <table class="table table-hover table-light">
-  <thead>
-        </div>
+  <style>
+body {
+  background: url("bg-pm.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+</style>
+    <div class="container mt-5">
+    <h1 class="text-white">SELAMAT DATANG</h1>
+    <h4 class="text-white">Layanan Pengaduan Masyarakat</h4>
+    <div class="card text-center">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills">
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="home.php">HOME</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="masyarakat.php">isi laporan</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="isi_data.php">isi data</a>
+      </li>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="logout.php">keluar</a>
+      </li>
+    </ul>
+  </div>
+</div>
     </div>
 </div>
-  <thead>
-    <tr>
-      <th scope="col">no</th>
-      <th scope="col">Tanggal Pengaduan</th>
-      <th scope="col">Nik</th>
-      <th scope="col">Isi Laporan</th>
-      <th scope="col">Foto</th>
-      <th scope="col">Status</th>
-      <th scope="col">Aksi</th>
+</div>
+</div>
+</div>
     </tr>
-  </thead>
- 
-     <?php
-     $no=1;
-     foreach ($query as $query):?>
-  <tbody>
-  <tr>
-    <td><?php echo $no;$no++;?></td>
-    <td><?=$query['tgl_pengaduan']?></td>
-    <td><?=$query['nik']?></td>
-    <td><?=$query['isi_laporan']?></td>
-    <td><img src="<?=$query['foto'];?>" widht="100" height="100"/></td>
-    <td><?=$query['status']?></td>
-<td>
-    <a href="" class="btn btn-danger btn-sm">Update</a>
-    <a href="delete.php?id_pengaduan=<?=$query['id_pengaduan'];?>" class="btn btn-danger mb-3 btn-sm text-white">Delete</a>
-</td>
-  </tr>
   </tbody>
-  <?php endforeach ?>
 </table>
-</div>
-</div>
-</div>
+
+</form>
 </div>
 </body>
 </html>

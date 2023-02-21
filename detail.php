@@ -2,10 +2,10 @@
 
 session_start();
 
-$db = mysqli_connect("localhost","root","","pengaduanmasyarakat");
-
-$result = mysqli_query($db, "SELECT * FROM  pengaduan");
-
+$db =new PDO("mysql:host=localhost;dbname=pengaduanmasyarakat",'root','');
+$id =$_GET['id_pengaduan']; 
+$query = $db->query("SELECT * FROM `pengaduan` WHERE `id_pengaduan`='$id'");
+$data = $query->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +16,7 @@ $result = mysqli_query($db, "SELECT * FROM  pengaduan");
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title> masyrakat</title>
 </head>
-<body style="background:grey">
+<body style="background:black">
     <div class="container mt-5">
     <h1 class="text-white">PENGADUAN MASYARAKAT</h1>
     <h4 class="text-white">masyarakat</h4>
@@ -27,7 +27,10 @@ $result = mysqli_query($db, "SELECT * FROM  pengaduan");
         <a class="nav-link text-dark" href="home.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="masyarakat.php">isi laporan</a>
+        <a class="nav-link text-dark" href="masyarakat.php">isi_laporan</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-dark" href="isi_data.php">isi_data</a>
       </li>
      
       <li class="nav-item">
@@ -45,8 +48,8 @@ $result = mysqli_query($db, "SELECT * FROM  pengaduan");
              <form>
              <div class="col-auto">
                   <select name="ppm" class="form-control" style="width:100px" id="">                 
-                    <option value="tanggal">tgl pengaduan</option>                    
-                    <option value="isi_laporan">isi laporan</option>
+                    <option value="tanggal">tgl_pengaduan</option>                    
+                    <option value="isi_laporan">isi_laporan</option>
                     <option value="foto">foto</option>
             
                     
@@ -63,14 +66,13 @@ $result = mysqli_query($db, "SELECT * FROM  pengaduan");
   <thead>
     <tr style="text-align:center;">
       <th scope="col">No</th>
-      <th scope="col">tgl pengaduan</th>
-      <th scope="col">isi laporan</th>
+      <th scope="col">tgl_pengaduan</th>
+      <th scope="col">isi_laporan</th>
       <th scope="col">foto</th>
-      <th scope="col">aksi</th>
     </tr>
   </thead>
   <?php $no=1;?>
-  <?php while ($row = mysqli_fetch_assoc($result)):?>
+ <?php foreach ($data as $row){?>
   <tbody>
     <tr class="text-center">
       <th scope="row"><?= $no;?></th>
@@ -78,20 +80,31 @@ $result = mysqli_query($db, "SELECT * FROM  pengaduan");
       <td><?=$row['isi_laporan'];?></td>
       <td><img src="<?=$row['foto'];?>" width="100" height="100"/></td>
        <td>
-       <a href="detail.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-success ml-auto">detail</a>
-        <a href="fupdate.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-success ml-auto">Update</a>
-      <a href="delete.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-danger ml-auto">delete</a>
+
     </td>
     </tr>
     </tbody>
     <?php $no++ ?>
-    <?php endwhile ?>
+    <?php } ?>
     </table>
+    <hr>
+    <h2>tanggapan</h2>
+    <div class"">
+        <?php
+        $query = $db->query("select * from tanggapan where id_pengaduan='$id'");
+ 
+        $data = $query->fetchAll();
+        foreach ($data as $data)
+        ?>
+        <h3><?$data['id_petugas'] ?></h3>
+        <div class="text-tanggapan">Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+             Corrupti quam nesciunt commodi. Eius, soluta earum? Debitis laudantium nisi sed qui pariatur maiores reprehenderit? Culpa commodi provident sequi distinctio adipisci nostrum?</div>
+
     </div>
     </div>
     <div class="text-end">
-    <a href="isi_data.php" class="btn btn-primary">
-      isi data
+    
+      
     </a>
     </div>
 </body>

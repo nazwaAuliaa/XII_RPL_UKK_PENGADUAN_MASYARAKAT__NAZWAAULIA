@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(isset($_SESSION["username"])){
+  
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +29,7 @@ session_start();
           <form action="home.php" method="post" style="width: 23rem;">
 
             <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+            <form class="form-login" method="POST" action="<?= '' ?>">
 
             <div class="form-outline mb-4">
               <label class="form-label" for="form2Example18">username</label>

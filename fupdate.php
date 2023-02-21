@@ -2,10 +2,10 @@
 
 session_start();
 
-$id_pengaduan = $_GET['id_pengaduan'];
+$id = $_GET['id_pengaduan'];
 
 $db = new PDO('mysql:host=localhost;dbname=pengaduanmasyarakat','root','');
-$query = $db->query("SELECT * FROM `pengaduan` WHERE  `id_pengaduan`='$id_pengaduan '");
+$query = $db->query("SELECT * FROM `pengaduan` WHERE  `id_pengaduan`='$id'");
 
 $data = $query->fetch();
 
@@ -49,16 +49,13 @@ $data = $query->fetch();
         <div class="col">
             <h1 class="mb-3 mt-3  ">U P D A T E&nbsp; D A T A</h1>
             <hr class="divider">
-            <input type="hidden" name="id_pengaduan" value="<?= $id?>">
+            <input type="hidden" name="tgl_pengaduan" value="<?= $tgl?>">
               <div class="mb-3 mt-4">
                 Tanggal pengaduan : 
                 <input class="rounded-3 form-control" type="date" name="tgl_pengaduan" value="<?= $data['tgl_pengaduan']?>" style="width: 60%;">
               </div>
               <div class="mb-3 mt-3 ">
-                Nik : 
-                <input class="rounded-3 form-control" type="text" name="nik" style="width: 60%;"  value="<?= $data['nik']?>">
-              </div>
-              <div class="mb-3 mt-3 ">
+               
                 Isi Laporan : 
                 <input class="rounded-3 form-control" type="text" name="isi_laporan" style="width: 60%;"  value="<?= $data['isi_laporan']?>">
               </div>
@@ -67,10 +64,7 @@ $data = $query->fetch();
                 <input class="rounded-3 form-control" type="file" name="foto" style="width: 60%;"  value="<?= $data['foto']?>">
               </div>
               <div class="mb-3 mt-3 ">
-                Status : 
-                <input class="rounded-3 form-control" type="text" name="status" style="width: 60%;"  value="<?= $data['status']?>">
-              </div>
-              <div class=" mt-3"> 
+               
                 <button type="submit" class="btn btn-success px-3 mb-3" style="width: 100px;">Simpan</button> 
                 </div>
               </div>
