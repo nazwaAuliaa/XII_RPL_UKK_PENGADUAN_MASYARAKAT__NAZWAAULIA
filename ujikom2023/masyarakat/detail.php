@@ -79,7 +79,7 @@ $data = $query->fetchAll();
       <th scope="row"><?= $no;?></th>
       <td><?=$row['tgl_pengaduan'];?></td>
       <td><?=$row['isi_laporan'];?></td>
-      <td><img src="<?=$row['foto'];?>" width="100" height="100"/></td>
+      <td><img src="./../img/<?= $row['foto'];?>" width="100" height="100"/></td>
        <td>
 
     </td>

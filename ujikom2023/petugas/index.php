@@ -13,7 +13,7 @@ $result = mysqli_query($db, "SELECT * FROM tanggapan");
     <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ADMIN</title>
+    <title>PETUGAS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   </head>
     <nav class="navbar navbar-dark bg-dark fixed-top">
@@ -26,7 +26,7 @@ $result = mysqli_query($db, "SELECT * FROM tanggapan");
 </nav>
 <footer class="page-footer white">
 <div class="row align-items-center" style="margin-left: 500px; margin-right: 200px; margin-top: 100px;">
-<h4>SELAMAT DATANG ADMIN</h4>
+<h4>SELAMAT DATANG PETUGAS</h4>
 </div>
 
 <div class="row align-items-center" style=" margin-left: 200px; margin-right: 200px; margin-top: 45px;">

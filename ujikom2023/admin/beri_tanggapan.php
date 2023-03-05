@@ -14,6 +14,15 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ADMIN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+    <style>
+      @media print{
+        #container_button{
+          display= none;
+        }
+
+      }
+    </style>
   </head>
     <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
@@ -32,9 +41,11 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan");
 </nav>
 <body>
 
-<div class="row align-items-center" style="margin-left: 550px; margin-right: 200px; margin-top: 100px;">
-<h4>Beri Tanggapan</h4>
+<div class="row align-items-center" style="margin-left: 600px; margin-right: 200px; margin-top: 100px;">
+<h3>Beri Tanggapan</h3>
 </div>
+<div id="container_button">
+<button class="btn btn-success" id="button_print">Print</button>
 <div class="row align-items-center" style="margin-left: 100px; margin-right: 100px; margin-top: 100px;">
   <div class="d-grip gap-2 col-12">
   <table class="table table-light table-hover table-borderless">
@@ -53,11 +64,11 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan");
   <?php while($row = mysqli_fetch_assoc($result)):?>
   <tbody>
     <tr class="text-center">
-      <th scope="row"><?= $i ?></th>
+      <th scope="$row"><?= $i ?></th>
       <td><?=$row['tgl_pengaduan'];?></td>
       <td><?=$row['isi_laporan'];?></td>
-      <td><img src="../img/<?=$row['foto'];?>" width="100" height="100"/></td>
-      <td><?=$row['status'];?></td>>
+      <td><img src="./../img/<?= $row['foto'];?>" width="100" height="100"/></td>
+      <td><?=$row['status'];?></td>
       <td><a href="from_beritanggapan.php?id_pengaduan=<?= $row['id_pengaduan'] ?>" class="btn btn-sm btn-primary ml-auto">Beri Tanggapan</a>
       
     </td>
@@ -68,5 +79,12 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan");
     </table>
     <div class=""></div>
     </div>
+    <script>
+      var tombol_print = document.getElementById("button_print");
+
+      tombol_print.addEventListener('click', function(){
+        window.print();
+      })
+    </script>
 </body>
 </html>

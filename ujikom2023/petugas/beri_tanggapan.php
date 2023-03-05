@@ -14,6 +14,8 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan");
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>PETUGAS</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  
+
   </head>
     <nav class="navbar navbar-dark bg-dark fixed-top">
   <div class="container-fluid">
@@ -32,39 +34,35 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan");
 </nav>
 <body>
 
-<div class="row align-items-center" style="margin-left: 500px; margin-right: 200px; margin-top: 100px;">
-<h4>Validasi Dan Verifikasi</h4>
+<div class="row align-items-center" style="margin-left: 600px; margin-right: 200px; margin-top: 100px;">
+<h3>Beri Tanggapan</h3>
 </div>
+
 <div class="row align-items-center" style="margin-left: 100px; margin-right: 100px; margin-top: 100px;">
   <div class="d-grip gap-2 col-12">
   <table class="table table-light table-hover table-borderless">
   <thead>
     <tr style="text-align:center;">
-      <th scope="col">no</th>
-      <th scope="col">id_pengaduan</th>
+    <tr style="text-align:center;">
+      <th scope="col">No</th>
       <th scope="col">tgl_pengaduan</th>
-      <th scope="col">nik</th>
       <th scope="col">isi_laporan</th>
       <th scope="col">foto</th>
       <th scope="col">status</th>
       <th scope="col">aksi</th>
-      
     </tr>
   </thead>
   <?php $i=1;?>
   <?php while($row = mysqli_fetch_assoc($result)):?>
   <tbody>
     <tr class="text-center">
-      <th scope="row"><?= $i ?></th>
-      <td><?=$row['id_pengaduan'];?></td>
+      <th scope="$row"><?= $i ?></th>
       <td><?=$row['tgl_pengaduan'];?></td>
-      <td><?=$row['nik'];?></td>
       <td><?=$row['isi_laporan'];?></td>
       <td><img src="./../img/<?= $row['foto'];?>" width="100" height="100"/></td>
       <td><?=$row['status'];?></td>
-      <td>
-       <a href="detail.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-success ml-auto">detail</a>
-      <a href="delete.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-danger ml-auto">hapus</a>
+      <td><a href="from_beritanggapan.php?id_pengaduan=<?= $row['id_pengaduan'] ?>" class="btn btn-sm btn-primary ml-auto">Beri Tanggapan</a>
+      
     </td>
     </tr>
     </tbody>
@@ -73,5 +71,6 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan");
     </table>
     <div class=""></div>
     </div>
+ 
 </body>
 </html>

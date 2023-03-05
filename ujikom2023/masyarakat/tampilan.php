@@ -27,7 +27,7 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan where nik='$nik'");
         <a class="nav-link text-dark" href="home.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="tampilan.php">isi_laporan</a>
+        <a class="nav-link text-dark" href="tampilan.php">data_laporan</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark" href="isi_data.php">isi_data</a>
@@ -79,7 +79,7 @@ $result = mysqli_query($db, "SELECT * FROM pengaduan where nik='$nik'");
       <th scope="row"><?= $no;?></th>
       <td><?=$row['tgl_pengaduan'];?></td>
       <td><?=$row['isi_laporan'];?></td>
-      <td><img src="img/<?=$row['foto'];?>" width="100" height="100"/></td>
+      <td><img src="./../img/<?=$row['foto'];?>" width="100" height="100"/></td>
        <td>
        <a href="detail.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-success ml-auto">detail</a>
         <a href="fupdate.php?id_pengaduan=<?=$row['id_pengaduan'];?>" class="btn btn-sm btn-success ml-auto">Update</a>

@@ -35,7 +35,7 @@ body {
         <a class="nav-link text-dark" href="home.php">HOME</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="tampilan.php">isi laporan</a>
+        <a class="nav-link text-dark" href="tampilan.php">data laporan</a>
       </li>
       <li class="nav-item">
         <a class="nav-link text-dark" href="isi_data.php">isi data</a>

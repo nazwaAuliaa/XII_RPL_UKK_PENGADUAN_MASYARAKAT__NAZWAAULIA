@@ -55,7 +55,7 @@
         </div>
 <div class="col">
     <div style="padding: 10px;">
-        <form action="../data.php"  method="POST" enctype='multipart/from-data'>
+        <form action="../data.php"  method="POST" enctype='multipart/form-data'>
         <div class="container mt-2">
 <div class="mb-3">
   <label for="exampleFormControlInput1" class="form-label">Tgl_pengaduan</label>

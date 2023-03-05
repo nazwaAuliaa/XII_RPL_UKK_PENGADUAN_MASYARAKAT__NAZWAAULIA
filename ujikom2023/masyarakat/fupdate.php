@@ -49,7 +49,7 @@ $data = $query->fetch();
         <div class="col">
             <h1 class="mb-3 mt-3  ">U P D A T E&nbsp; D A T A</h1>
             <hr class="divider">
-            <form action="update.php?id_pengaduan=<?= $_GET['id_pengaduan']?>"  method="POST">
+            <form action="update.php?id_pengaduan=<?= $_GET['id_pengaduan']?>"  method="POST" enctype='multipart/form-data'>
               <div class="mb-3 mt-4">
                 Tanggal pengaduan : 
                 <input class="rounded-3 form-control" type="date" name="tgl_pengaduan" value="<?= $data['tgl_pengaduan']?>" style="width: 60%;">
@@ -67,13 +67,6 @@ $data = $query->fetch();
               <div class="mb-3 mt-3 ">
                 Foto : 
                 <input class="rounded-3 form-control" type="file" name="foto" style="width: 60%;"  value="<?= $data['foto']?>">
-              </div>
-              <div class="mb-3 mt-3 ">
-                  Status :
-                  <select name="status" id="status" class="rounded-3 form-control">
-                    <option value="proses">Proses</option>
-                    <option value="selesai">Selesai</option>
-                  </select>
               </div>
               <div class="mb-3 mt-3 ">
                
